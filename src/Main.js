@@ -20,7 +20,7 @@ class Main extends Component {
             })
         } else {
             this.setState({
-                isMobile: true
+                isMobile: false
             })
         }
         sendProducts(products, pricingInfo);
