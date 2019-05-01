@@ -55,7 +55,7 @@ class App extends Component {
                                                     <td>{item.weight}</td>
                                                     <td>{item.availability}</td>
                                                     <td>
-                                                        {item.isEditable ? <button class="edit-button" onClick={this.openInNew.bind(this, item)}> Edit </button> : null}
+                                                        {item.isEditable ? <button className="edit-button" onClick={this.openInNew.bind(this, item)}> Edit </button> : null}
                                                     </td>
                                                 </tr>
                                             )
