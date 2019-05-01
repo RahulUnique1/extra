@@ -7,21 +7,32 @@ import './style/App.css';
 
 class Main extends Component {
 
-    constructor (props) {
-        super();
+    state = {
+        
     }
     
     componentWillMount(){
-        this.props.sendProducts(products, pricingInfo);
+        let { sendProducts } = this.props;
+                
+        if(window.screen.width <= 768) {
+            this.setState ({
+                isMobile: true
+            })
+        } else {
+            this.setState({
+                isMobile: true
+            })
+        }
+        sendProducts(products, pricingInfo);
     }
-
-
+    
     render () {
-
+      let isMobile = this.state ? this.state.isMobile : false;
+        
         return (
             <div className="app">
                 { this.props.children !== null ? (
-                    React.cloneElement(this.props.children, {...this.props})
+                    React.cloneElement(this.props.children, {...this.props, isMobile})
                 ): (
                     ''
                 )}

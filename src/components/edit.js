@@ -69,7 +69,7 @@ class EditProduct extends Component {
   
     render() {
         
-        const { app: { pricingInfo: { budget = [], premier = [] } = {} } } = this.props;
+        const { app: { pricingInfo: { budget = [], premier = [] } = {} }, isMobile } = this.props;
         const { pricingTier, isEditable } = this.state;
         
       
@@ -78,7 +78,7 @@ class EditProduct extends Component {
               className="edit-container"          
             >
               
-              <div className="form-container">
+              <div style={ isMobile ? { width: 'auto' } : {} } className="form-container">
                 <div style={headerStyle}>
                     Edit Product
                 </div>
