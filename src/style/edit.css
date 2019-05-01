@@ -1,0 +1,64 @@
+.edit-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    width: 400px;
+    height: auto;
+    border: 1px solid #bbb;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #bbb;
+    transition: all .2s;
+}
+
+.form-container:hover {
+    box-shadow: 0px 0px 10px #bbb;
+}
+
+.submit-style {
+    padding: 7px 12px;
+    color: white;
+    background-color: #0087d1;
+    border: none;
+    box-shadow: 1px 1px 2px #142992;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s
+}
+
+.submit-style:hover {
+    background-color: #0d73ab;
+    box-shadow: 2px 2px 5px #142992;
+}
+
+.isEditable-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.isEditable-checkbox:hover {
+    opacity: 0.7;
+}
+
+.radio-button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.radio-button:hover {
+    opacity: 0.7;
+}
+
+.select-box {
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import store, { history } from './store';
 
 import Main from './Main';
-import App from './App';
-import EditProduct from './edit';
+import App from './components/App';
+import EditProduct from './components/edit';
 
 function scrollTop () {
     window.scrollTo(0, 0);

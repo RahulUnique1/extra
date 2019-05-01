@@ -1,43 +1,22 @@
 import React, { Component } from 'react';
+import '../style/edit.css'
+
+const headerStyle = {
+    textAlign: 'center',
+    padding: 10,
+    fontSize: 20,
+}
 
 const fieldStyle = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    margin: 10
-}
-
-const submitStyle = {
-    padding: '5px 10px',
-    color: 'white',
-    backgroundColor: 'blue',
-    border: 'none',
-    boxShadow: '2p 2px 5px #eee',
-    borderRadius: 4,
-    cursor: 'pointer'
+    margin: 30
 }
 
 const textBoxStyle = {
     padding: 5,
     borderRadius: 4
-}
-
-const containerStyle={
-    display: 'flex',
-    justifyContent: 'center'                 
-}
-
-const divStyle = { 
-    border: '1px solid #bbb', 
-    padding: 10, 
-    margin: 10, 
-    borderRadius: 4 
-}
-
-const selectBoxStyle = {
-    padding: '5px',
-    borderRadius: 4,
-    cursor: 'pointer'
 }
 
 class EditProduct extends Component {
@@ -78,9 +57,7 @@ class EditProduct extends Component {
         let { app: { products = [] } = {} } = this.props;
         
         let editedProduct = {...this.state};
-            
-            
-        
+
         let productIndex = products.findIndex(item => item.name === editedProduct.name);
         
         if(productIndex >= 0) {
@@ -98,10 +75,13 @@ class EditProduct extends Component {
       
         return(
             <div 
-              style={containerStyle}            
+              className="edit-container"          
             >
-            
-              <div style={divStyle}>
+              
+              <div className="form-container">
+                <div style={headerStyle}>
+                    Edit Product
+                </div>
                 <form onSubmit={this.submitForm}>
                     
                     <div style={fieldStyle}>
@@ -125,12 +105,24 @@ class EditProduct extends Component {
                     </div>
 
                     <div style={fieldStyle}>
-                        <label style={{ paddingRight: 10 }}> Pricing Tier</label>
-                        <input name="budget" type="radio" checked={pricingTier === 'budget'} onChange={this.handleRadio} required={pricingTier === 'budget'}/>
-                        <label for="budget" style={{ paddingRight: 10 }}>Budget</label>
-                        
-                        <input name="premier" type="radio" checked={pricingTier === 'premier'} onChange={this.handleRadio} required={pricingTier === 'premier'}/>
-                        <label style={{ paddingRight: 10 }}> Premier </label>
+                        <div>                        
+                            <label style={{ paddingRight: 10 }}> Pricing Tier</label>
+                        </div>
+
+                        <div style={{display: 'flex'}}>
+
+                            <div style={{ ...fieldStyle, margin: '0px 5px' }}>
+                                <input className="radio-button" name="budget" type="radio" checked={pricingTier === 'budget'} onChange={this.handleRadio} required={pricingTier === 'budget'}/>
+                                <label for="budget" style={{ padding: '0px 5px' }}>Budget</label>
+                            </div>
+                            
+                            <div style={{ ...fieldStyle, margin: '0px 5px' }}>           
+                                <input className="radio-button" name="premier" type="radio" checked={pricingTier === 'premier'} onChange={this.handleRadio} required={pricingTier === 'premier'}/>
+                                <label style={{ padding: '0px 5px' }}> Premier </label>                        
+                            </div>
+
+                        </div>
+                    
                     </div>
 
                     <div style={fieldStyle}>
@@ -138,7 +130,7 @@ class EditProduct extends Component {
                         
                             {
                                 pricingTier === 'premier' && (
-                                  <select style={selectBoxStyle} name="priceRange" onChange={this.handleChange} required>
+                                  <select className="select-box" name="priceRange" onChange={this.handleChange} required>
                                     {premier.map((item, idx) => {
                                         return (
                                             <option 
@@ -155,7 +147,7 @@ class EditProduct extends Component {
                         
                             {
                                 pricingTier === 'budget' && (
-                                  <select style={selectBoxStyle} name="priceRange" onChange={this.handleChange} required>
+                                  <select className="select-box" name="priceRange" onChange={this.handleChange} required>
                                     {budget.map((item, idx) => {
                                         return (
                                             <option 
@@ -172,13 +164,13 @@ class EditProduct extends Component {
 
                     </div>
 
-                    <div style={{margin: '10px 10px 10px 0px'}}>
-                        <label for="priceRange" style={{ paddingRight: 10 }}></label>
-                        <input type="checkbox" name="isEditable" value="isEditable" checked={isEditable} onChange={this.handleCheckBox} required/> isEditable 
+                    <div style={{display: 'flex', alignItems: 'center', margin: '10px 10px 10px 30px'}}>
+                        <input className="isEditable-checkbox" type="checkbox" name="isEditable" value="isEditable" checked={isEditable} onChange={this.handleCheckBox} required/>                   
+                        <label for="priceRange" style={{ paddingLeft: 10 }}>isEditable</label>
                     </div>
                     
                     <div style={{...fieldStyle, justifyContent: 'center'}}>
-                      <input style={submitStyle} type="submit" value="submit"/>
+                      <input className="submit-style" type="submit" value="Submit"/>
                     </div>
                 </form>
               </div>
