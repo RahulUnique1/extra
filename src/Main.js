@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from './actions';
 import { products, pricingInfo } from './products_1.js';
+import './style/App.css';
 
 class Main extends Component {
 
@@ -18,7 +19,7 @@ class Main extends Component {
     render () {
 
         return (
-            <div>
+            <div className="app">
                 { this.props.children !== null ? (
                     React.cloneElement(this.props.children, {...this.props})
                 ): (
