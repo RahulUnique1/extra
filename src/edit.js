@@ -47,7 +47,6 @@ class EditProduct extends Component {
     }
     
     componentWillMount() {
-        console.log('datas', this.props.router.location.state.dataItem);
         let { location: { state: { dataItem = {} } = {} } = {} } = this.props.router;
         
         if (Object.keys(dataItem).length > 0) {
@@ -55,7 +54,6 @@ class EditProduct extends Component {
             
             let product = products.find(item => item.name === dataItem.name);
             
-            console.log('found', product);
             if(product) {
                 this.setState({ ...this.state, ...product })
             }
@@ -74,7 +72,6 @@ class EditProduct extends Component {
     
     handleRadio = (e) => {
         this.setState({ pricingTier: e.target.name })
-        console.log('e', e.target.name);
     }
     
     submitForm = (e) => {
@@ -88,7 +85,6 @@ class EditProduct extends Component {
         
         if(productIndex >= 0) {
             products[productIndex] = editedProduct;
-            console.log('found', products);
         } 
         e.preventDefault();
         this.props.router.push('/')
