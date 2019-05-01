@@ -24,7 +24,6 @@ class Main extends Component {
             })
         }
         sendProducts(products, pricingInfo);
-        console.log('width', window.screen.width);
     }
     
     render () {
