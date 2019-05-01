@@ -4,8 +4,6 @@ import '../style/App.css';
 const containerStyle = {
     padding: 10,
     height: '100%',
-    // display: 'flex',
-    // justifyContent: 'center',
 }
 
 const headerStyle = {
@@ -25,7 +23,7 @@ class App extends Component {
 
     render() {
         
-        let { app: { products = [] } } = this.props;
+        let { app: { products = [] }, isMobile } = this.props;
       
         return (
             <div style={containerStyle}>
@@ -38,7 +36,7 @@ class App extends Component {
                   
                     {
                         products.length > 0 && (
-                            <table>
+                            <table style={ isMobile ? { width: 'auto', height: 'auto' } : {} }>
                                 <thead>
                                     <tr>
                                         <th>Name</th>
